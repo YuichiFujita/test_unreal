@@ -19,6 +19,10 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent *VisualMesh;	// ビジュアルメッシュ
 
+	// メンバ変数
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FloatingProperty")
+	float m_fFloatSpeed;	// 縦移動量
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

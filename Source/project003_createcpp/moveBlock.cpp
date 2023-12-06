@@ -26,7 +26,8 @@ AmoveBlock::AmoveBlock()
 	}
 
 	// メンバ変数をクリア
-	m_fSinMove = 0.0f;	// サインカーブ移動量
+	m_fSinMove = 0.0f;		// サインカーブ移動量
+	m_fFloatSpeed = 2.0f;	// 縦移動量
 }
 
 // Called when the game starts or when spawned
@@ -35,7 +36,8 @@ void AmoveBlock::BeginPlay()
 	Super::BeginPlay();
 	
 	// メンバ変数を初期化
-	m_fSinMove = 0.0f;	// サインカーブ移動量
+	m_fSinMove = 0.0f;		// サインカーブ移動量
+	m_fFloatSpeed = 2.0f;	// 縦移動量
 }
 
 // Called every frame
@@ -50,7 +52,7 @@ void AmoveBlock::Tick(float DeltaTime)
 	m_fSinMove += 0.1f;
 
 	// 位置を縦移動
-	location.Z -= sin(m_fSinMove) * 2.0f;
+	location.Z -= sin(m_fSinMove) * m_fFloatSpeed;
 
 	// アクターの位置を反映
 	SetActorLocation(location);
